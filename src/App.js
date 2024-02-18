@@ -19,15 +19,23 @@ export default function App() {
     //updating input
     const handleChange = ({target}) => {
         const {name, value} = target
-        setTask((prevTask) => ({...prevTask, [name]: value}))
+        setTask((prevTask) => ({...prevTask, id: Date.now(), [name]: value}))
+    }
+
+    const handleDelete = (id) => {
+        setTaskList((prevTaskList) => {
+            return prevTaskList.filter((task) => {
+                return task.id !== id;
+            })
+        })
     }
 
     //JSX
     return (
-        <div>
-            <h1>Todo List App</h1>
+        <div className="App">
+            <h1>Todo<span>It</span></h1>
             <Form submit={handleSubmit} change={handleChange} task={task} />
-            <TaskList list={taskList} />
+            <TaskList list={taskList} handleDelete={handleDelete}/>
         </div>
     )
 }

@@ -8,12 +8,7 @@ export default function form({submit, change, task}) {
                 name="title"
                 onChange={change}
                 value={task.title || ''}
-            />
-            <input
-                type="text"
-                name="description"
-                onChange={change}
-                value={task.description || ''}
+                placeholder="Type your Task: "
             />
             <button type="submit">Add Task</button>
         </form>

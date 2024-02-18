@@ -1,38 +1,108 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.App h1 {
+  font-size: 48px;
+  color: #27afff;
+  text-transform: uppercase;
+}
+
+.App h1 span {
+  color: #6a76f6;
+}
+
+.App form {
+  width: 400px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap: 8px;
+}
+
+.App form input {
+  width: 400px;
+  padding: 8px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #212121;
+  font-size: 24px;
+}
+.App form input::placeholder{
+  font-size: 16px;
+}
+.App form input:focus {
+  outline: none;
+}
+.App form input:focus::placeholder {
+  color: transparent;
+}
+
+.App form button {
+  padding: 14px;
+  background: #6a76f6;
   color: white;
+  border: 1px solid #212121;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.App form button:hover {
+  background: #a1aafa;
+}
+.App form button:active {
+  background: #2131f5;
 }
 
-.App-link {
-  color: #61dafb;
+.App ul {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 24px;
+  padding: 0;
+  gap: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App ul li {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  border: 1px solid #dddddd;
+}
+
+.App ul li h1 {
+  text-align: start;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  text-transform: capitalize;
+  padding: 4px;
+}
+
+.App ul li button {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #dddddd;
+  cursor: pointer;
+  color: #dddddd;
+}
+.App ul li button:hover {
+  color: lightgreen;
+}
+
+.App ul li button i {
+  font-size: 24px;
+  padding: 8px;
 }
