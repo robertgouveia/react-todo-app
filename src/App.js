@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+//imports
+import './styles/App.css';
+import React, {useState} from "react";
+import Form from './components/form';
+import TaskList from "./components/tasklist";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//application
+export default function App() {
+    const [taskList, setTaskList] = useState([])
+    const [task, setTask] = useState({})
+
+    //submission
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(!task.title) return
+        setTaskList((prevTaskList) => ([task, ...prevTaskList]))
+        setTask({})
+    }
+    //updating input
+    const handleChange = ({target}) => {
+        const {name, value} = target
+        setTask((prevTask) => ({...prevTask, [name]: value}))
+    }
+
+    //JSX
+    return (
+        <div>
+            <h1>Todo List App</h1>
+            <Form submit={handleSubmit} change={handleChange} task={task} />
+            <TaskList list={taskList} />
+        </div>
+    )
 }
-
-export default App;
